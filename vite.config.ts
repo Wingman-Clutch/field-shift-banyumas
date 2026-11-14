@@ -36,6 +36,10 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,json,geojson}'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
         cleanupOutdatedCaches: true,
+        // The architecture diagram is a separate ~850 KB page: keep it out of the offline bundle,
+        // and never answer its URL with the app shell (index.html).
+        globIgnores: ['architecture.html'],
+        navigateFallbackDenylist: [/architecture\.html$/],
         // autoUpdate: a new build takes over open tabs right away (the client then reloads the page).
         skipWaiting: true,
         clientsClaim: true,

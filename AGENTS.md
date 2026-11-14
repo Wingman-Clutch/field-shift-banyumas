@@ -125,6 +125,17 @@ public/data/    generated data that ships with the app (works offline)
 - Load data only through `src/lib/data.ts`, which respects the Vite base path (`BASE_PATH`) used on GitHub Pages.
 - The UI is in English and mobile-first. Check it at 320 px and 390 px wide.
 
+### Architecture diagram
+
+The interactive diagram ([`public/architecture.html`](public/architecture.html), live at `…/field-shift-banyumas/architecture.html`) is made with [Archify](https://github.com/tt-a1i/archify) v3.2.0 from `docs/architecture.archify.json`. Every box links to lines of code at the commit in `meta.repository.revision`. When the architecture changes:
+
+1. Update the JSON, including the revision and the cited line numbers. Cite committed code: the links point at that revision.
+2. Clone Archify outside the repo, then run `node <archify>/archify/bin/archify.mjs finalize architecture docs/architecture.archify.json .archify/architecture.html --repo-root . --quality showcase --json`. The `.archify/` folder is ignored.
+3. Copy `.archify/architecture.html` to `public/architecture.html`.
+4. Export a PNG in light and in dark mode from the diagram's **Export** button, then save each as a 2400 px WebP: `cwebp -q 95 -resize 2400 0 <png> -o docs/images/architecture-light.webp` (same for `architecture-dark.webp`).
+
+The service worker keeps this page out of the offline cache and never answers its URL with the app shell (`globIgnores` and `navigateFallbackDenylist` in `vite.config.ts`).
+
 ## 8. Data and licenses
 
 - Every data source used in the app goes in the README table **Data sources and licenses**, and later in the Space Apps form (**NASA Data** or **Space Agency Partner & Other Data**). That includes libraries, code and images, even open-source ones.

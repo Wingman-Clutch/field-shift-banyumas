@@ -4,3 +4,6 @@ dist
 dev-dist
 *.local
 .DS_Store
+
+# Archify build output and receipts (the published copy is public/architecture.html)
+.archify/
