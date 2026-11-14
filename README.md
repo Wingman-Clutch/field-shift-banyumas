@@ -85,7 +85,19 @@ flowchart LR
     class U user;
 ```
 
-An interactive architecture diagram that links to the code, like the ones in our other projects, will be added once the main features are in.
+<p align="center">
+  <sub>CODE → DIAGRAM · A system map that links to its lines of code</sub><br />
+  <a href="https://wingman-clutch.github.io/field-shift-banyumas/architecture.html">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="docs/images/architecture-dark.webp" />
+      <img src="docs/images/architecture-light.webp" width="100%" alt="Architecture of Field Shift Banyumas: the user opens the app from GitHub Pages, the app shell renders the Leaflet map of 27 kecamatan and the climate panel, a data loader reads the static GeoJSON and NASA POWER files, and a service worker precaches everything for offline use. Below, two build-time scripts download geoBoundaries and NASA POWER data into public/data, and GitHub Actions deploys the build to GitHub Pages." />
+    </picture>
+  </a>
+</p>
+
+**[Open the interactive diagram ↗](https://wingman-clutch.github.io/field-shift-banyumas/architecture.html)** · [trace the path from the user to the data ↗](https://wingman-clutch.github.io/field-shift-banyumas/architecture.html#route=user~data) · [source JSON](docs/architecture.archify.json)
+
+Every box in the interactive version links to the lines of code behind it, and the guided views walk through opening the app, picking a kecamatan, refreshing the data, and deploying.
 
 <details>
 <summary><b>Data details</b>: parameters, grid cells, and how the chart is computed</summary>
@@ -128,7 +140,11 @@ npm run icons             # regenerate the PWA icons from public/logo.svg
 <summary><b>Project structure</b></summary>
 
 ```
+docs/
+  architecture.archify.json         source of the interactive architecture diagram (Archify)
+  images/architecture-*.webp        light and dark images of the diagram for this README
 public/
+  architecture.html                 the generated interactive diagram, served on GitHub Pages
   data/banyumas-kecamatan.geojson   kecamatan boundaries (27 features) + source metadata
   data/power/index.json             kecamatan → NASA POWER grid-cell file
   data/power/merra2_*.json          monthly NASA POWER data per grid cell
@@ -166,7 +182,7 @@ The geoBoundaries **gbOpen** release has no Indonesian ADM3, so the **gbHumanita
 NASA Space Apps asks every team to show where and how AI ("Super Intelligence") was used. Here is ours.
 
 - **Tool:** Claude (Anthropic), used through Claude Code as a coding assistant.
-- **Used for:** the project base (app shell, map, climate panel, PWA setup), the data download scripts, and drafts of this README and of [`AGENTS.md`](AGENTS.md).
+- **Used for:** the project base (app shell, map, climate panel, PWA setup), the data download scripts, the source of the architecture diagram ([`docs/architecture.archify.json`](docs/architecture.archify.json), rendered with Archify), and drafts of this README and of [`AGENTS.md`](AGENTS.md).
 - **Not used for:** coming up with our solution idea. The team decides the idea, the users, and the features.
 - **Markers:** every AI-assisted file starts with a one-line `AI-assisted` comment, generated data files carry a `processing` field in their metadata, and the placeholder logo (`public/logo.svg`) is SVG code drawn by the same tool.
 - **Review:** all changes go through pull requests so the team can review them.
@@ -185,4 +201,4 @@ How we work in this repo is in [`AGENTS.md`](AGENTS.md): no AI attribution in co
   </tr>
 </table>
 
-Team **Wingman Clutch**, NASA Space Apps Challenge 2026, Local Event Purwokerto.
+Team **Wingman Clutch**, NASA Space Apps Challenge 2026, Local Event Purwokerto. The architecture diagram is made with [Archify](https://github.com/tt-a1i/archify) (MIT).

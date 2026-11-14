@@ -1,0 +1,605 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Field Shift Banyumas architecture",
+    "locale": "en",
+    "output": ".archify/architecture.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/Wingman-Clutch/field-shift-banyumas.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "c8fcd05b09b0ec1d234dccafa26697d3238b2c39"
+    },
+    "legend": {
+      "entries": {
+        "backend": {
+          "label": "Build-time script"
+        },
+        "database": {
+          "label": "Static files"
+        }
+      }
+    },
+    "views": [
+      {
+        "id": "open",
+        "label": "Open the app",
+        "focus": [
+          "user",
+          "pages",
+          "shell",
+          "sw"
+        ],
+        "note": "GitHub Pages serves the build. The service worker precaches the shell and every data file, so later visits work offline."
+      },
+      {
+        "id": "pick",
+        "label": "Pick a kecamatan",
+        "focus": [
+          "shell",
+          "map",
+          "tiles",
+          "climate",
+          "loader",
+          "data"
+        ],
+        "note": "The map draws 27 kecamatan. Selecting one loads its NASA POWER grid-cell file and charts the monthly means."
+      },
+      {
+        "id": "refresh",
+        "label": "Refresh the data",
+        "focus": [
+          "geob",
+          "fb",
+          "power",
+          "fp",
+          "data"
+        ],
+        "note": "npm run data downloads the boundaries and NASA POWER, then writes static files into public/data."
+      },
+      {
+        "id": "deploy",
+        "label": "Deploy",
+        "focus": [
+          "actions",
+          "pages"
+        ],
+        "note": "Every push to main builds with BASE_PATH=/field-shift-banyumas/ and publishes dist to GitHub Pages."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "user",
+      "type": "external",
+      "icon": "person",
+      "label": "User",
+      "sublabel": "phone or laptop",
+      "pos": [
+        40,
+        170
+      ],
+      "size": [
+        140,
+        64
+      ]
+    },
+    {
+      "id": "pages",
+      "type": "cloud",
+      "label": "GitHub Pages",
+      "sublabel": "/field-shift-banyumas/",
+      "pos": [
+        260,
+        170
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": ".github/workflows/deploy.yml",
+          "line": 28,
+          "end_line": 35,
+          "label": "build with BASE_PATH, upload dist"
+        },
+        {
+          "path": ".github/workflows/deploy.yml",
+          "line": 37,
+          "end_line": 46,
+          "label": "deploy-pages"
+        }
+      ]
+    },
+    {
+      "id": "shell",
+      "type": "frontend",
+      "label": "App shell",
+      "sublabel": "React · panel / sheet",
+      "pos": [
+        490,
+        166
+      ],
+      "size": [
+        170,
+        72
+      ],
+      "sources": [
+        {
+          "path": "src/App.tsx",
+          "line": 26,
+          "end_line": 34,
+          "label": "load boundaries + POWER index"
+        },
+        {
+          "path": "src/App.tsx",
+          "line": 70,
+          "end_line": 77,
+          "label": "render the map"
+        },
+        {
+          "path": "src/App.tsx",
+          "line": 119,
+          "end_line": 121,
+          "label": "climate panel, feature slot, footer"
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "type": "frontend",
+      "label": "Map view",
+      "sublabel": "Leaflet · 27 kecamatan",
+      "pos": [
+        730,
+        170
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/components/MapView.tsx",
+          "line": 112,
+          "end_line": 113,
+          "label": "OpenStreetMap tile layer"
+        },
+        {
+          "path": "src/components/MapView.tsx",
+          "line": 118,
+          "end_line": 126,
+          "label": "kecamatan polygons, click selects"
+        }
+      ]
+    },
+    {
+      "id": "climate",
+      "type": "frontend",
+      "label": "Climate panel",
+      "sublabel": "monthly means · chart",
+      "pos": [
+        975,
+        166
+      ],
+      "size": [
+        170,
+        72
+      ],
+      "sources": [
+        {
+          "path": "src/components/ClimatePanel.tsx",
+          "line": 18,
+          "end_line": 38,
+          "label": "load the cell file"
+        },
+        {
+          "path": "src/lib/climatology.ts",
+          "line": 19,
+          "end_line": 37,
+          "label": "calendar-month means"
+        },
+        {
+          "path": "src/components/ClimateChart.tsx",
+          "line": 6,
+          "end_line": 34,
+          "label": "lazy-loaded chart"
+        }
+      ]
+    },
+    {
+      "id": "sw",
+      "type": "frontend",
+      "label": "Service worker",
+      "sublabel": "Workbox · offline",
+      "pos": [
+        490,
+        40
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/main.tsx",
+          "line": 9,
+          "end_line": 14,
+          "label": "registerSW"
+        },
+        {
+          "path": "vite.config.ts",
+          "line": 34,
+          "end_line": 53,
+          "label": "precache + tile cache"
+        }
+      ]
+    },
+    {
+      "id": "tiles",
+      "type": "external",
+      "label": "OpenStreetMap",
+      "sublabel": "basemap tiles",
+      "pos": [
+        730,
+        40
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/components/MapView.tsx",
+          "line": 112,
+          "end_line": 113,
+          "label": "tile.openstreetmap.org"
+        }
+      ]
+    },
+    {
+      "id": "actions",
+      "type": "cloud",
+      "label": "GitHub Actions",
+      "sublabel": "build + deploy",
+      "pos": [
+        260,
+        330
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": ".github/workflows/deploy.yml",
+          "line": 1,
+          "end_line": 11,
+          "label": "runs on every push to main"
+        },
+        {
+          "path": ".github/workflows/deploy.yml",
+          "line": 22,
+          "end_line": 31,
+          "label": "npm ci + build"
+        }
+      ]
+    },
+    {
+      "id": "loader",
+      "type": "frontend",
+      "label": "Data loader",
+      "sublabel": "lib/data.ts · cached",
+      "pos": [
+        730,
+        330
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "src/lib/data.ts",
+          "line": 4,
+          "end_line": 21,
+          "label": "fetch data/* under the base path"
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "type": "database",
+      "label": "Static data",
+      "sublabel": "public/data · GeoJSON + POWER JSON",
+      "pos": [
+        650,
+        470
+      ],
+      "size": [
+        320,
+        64
+      ],
+      "sources": [
+        {
+          "path": "scripts/fetch-boundaries.mjs",
+          "line": 11,
+          "label": "banyumas-kecamatan.geojson"
+        },
+        {
+          "path": "scripts/fetch-power.mjs",
+          "line": 10,
+          "end_line": 11,
+          "label": "reads boundaries, writes power/"
+        }
+      ]
+    },
+    {
+      "id": "fb",
+      "type": "backend",
+      "label": "fetch-boundaries.mjs",
+      "sublabel": "keeps 27 kecamatan",
+      "pos": [
+        640,
+        620
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "sources": [
+        {
+          "path": "scripts/fetch-boundaries.mjs",
+          "line": 29,
+          "end_line": 33,
+          "label": "find the Banyumas ADM2 polygon"
+        },
+        {
+          "path": "scripts/fetch-boundaries.mjs",
+          "line": 41,
+          "end_line": 59,
+          "label": "keep, simplify, add centroids"
+        },
+        {
+          "path": "scripts/fetch-boundaries.mjs",
+          "line": 95,
+          "label": "write the GeoJSON"
+        }
+      ]
+    },
+    {
+      "id": "fp",
+      "type": "backend",
+      "label": "fetch-power.mjs",
+      "sublabel": "2 grid cells · 2001–2025",
+      "pos": [
+        860,
+        620
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "sources": [
+        {
+          "path": "scripts/fetch-power.mjs",
+          "line": 105,
+          "end_line": 109,
+          "label": "read kecamatan centroids"
+        },
+        {
+          "path": "scripts/fetch-power.mjs",
+          "line": 125,
+          "label": "write one file per grid cell"
+        },
+        {
+          "path": "scripts/fetch-power.mjs",
+          "line": 153,
+          "label": "write index.json"
+        }
+      ]
+    },
+    {
+      "id": "geob",
+      "type": "external",
+      "label": "geoBoundaries",
+      "sublabel": "OCHA COD-AB · ADM3",
+      "pos": [
+        640,
+        760
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "sources": [
+        {
+          "path": "scripts/fetch-boundaries.mjs",
+          "line": 12,
+          "end_line": 13,
+          "label": "API, gbHumanitarian release"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "type": "external",
+      "label": "NASA POWER API",
+      "sublabel": "monthly · community AG",
+      "pos": [
+        860,
+        760
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "sources": [
+        {
+          "path": "scripts/fetch-power.mjs",
+          "line": 19,
+          "label": "monthly point endpoint"
+        },
+        {
+          "path": "scripts/fetch-power.mjs",
+          "line": 33,
+          "label": "request URL"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "GitHub",
+      "wraps": [
+        "pages",
+        "actions"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Developer machine · npm run data",
+      "wraps": [
+        "fb",
+        "fp"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "open-app",
+      "from": "user",
+      "to": "pages",
+      "label": "open app",
+      "variant": "emphasis"
+    },
+    {
+      "id": "serve-build",
+      "from": "pages",
+      "to": "shell",
+      "label": "HTML, JS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "render-map",
+      "from": "shell",
+      "to": "map",
+      "label": "render",
+      "variant": "emphasis"
+    },
+    {
+      "id": "selection",
+      "from": "map",
+      "to": "climate",
+      "label": "selection",
+      "variant": "emphasis"
+    },
+    {
+      "id": "register-sw",
+      "from": "shell",
+      "to": "sw",
+      "label": "registerSW"
+    },
+    {
+      "id": "precache",
+      "from": "sw",
+      "to": "pages",
+      "label": "precache",
+      "variant": "dashed"
+    },
+    {
+      "id": "basemap",
+      "from": "map",
+      "to": "tiles",
+      "label": "tiles"
+    },
+    {
+      "id": "load-index",
+      "from": "shell",
+      "to": "loader",
+      "label": "GeoJSON + index"
+    },
+    {
+      "id": "load-cell",
+      "from": "climate",
+      "to": "loader",
+      "label": "POWER cell"
+    },
+    {
+      "id": "fetch-data",
+      "from": "loader",
+      "to": "data",
+      "label": "GET data/*.json"
+    },
+    {
+      "id": "deploy-dist",
+      "from": "actions",
+      "to": "pages",
+      "label": "deploy dist"
+    },
+    {
+      "id": "write-geojson",
+      "from": "fb",
+      "to": "data",
+      "label": "write"
+    },
+    {
+      "id": "write-power",
+      "from": "fp",
+      "to": "data",
+      "label": "write"
+    },
+    {
+      "id": "get-boundaries",
+      "from": "geob",
+      "to": "fb",
+      "label": "ADM2 + ADM3"
+    },
+    {
+      "id": "get-power",
+      "from": "power",
+      "to": "fp",
+      "label": "monthly JSON"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Offline first",
+      "items": [
+        "The service worker precaches the app shell and every data file",
+        "Map tiles you have already viewed are cached, up to 300",
+        "At runtime the app calls no API except the map tiles"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Data pipeline",
+      "items": [
+        "fetch-boundaries.mjs keeps the kecamatan inside the Banyumas ADM2 polygon",
+        "fetch-power.mjs reads their centroids and calls NASA POWER once per grid cell",
+        "POWER is a ~50 km grid, so all 27 kecamatan fall in 2 cells"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Next: the team's feature",
+      "items": [
+        "The Feature area card in the panel is empty on purpose",
+        "The team decides the idea; this diagram is updated when the feature lands"
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Deploy",
+      "items": [
+        "CI type-checks and builds every pull request",
+        "main deploys to GitHub Pages under /field-shift-banyumas/"
+      ]
+    }
+  ]
+}
