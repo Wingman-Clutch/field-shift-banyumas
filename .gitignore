@@ -1,0 +1,6 @@
+# AI-assisted: generated with Claude (Anthropic). See README, "Use of AI".
+node_modules
+dist
+dev-dist
+*.local
+.DS_Store
