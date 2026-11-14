@@ -1,0 +1,5 @@
+// AI-assisted: generated with Claude (Anthropic). See README, "Use of AI".
+{
+  "files": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+}

@@ -1,0 +1,310 @@
+{
+ "metadata": {
+  "source": "NASA POWER",
+  "sourceUrl": "https://power.larc.nasa.gov/",
+  "community": "AG",
+  "temporal": "monthly",
+  "period": {
+   "start": 2001,
+   "end": 2025
+  },
+  "parameters": [
+   "PRECTOTCORR",
+   "T2M",
+   "T2M_MAX",
+   "T2M_MIN",
+   "RH2M",
+   "ALLSKY_SFC_SW_DWN",
+   "GWETROOT"
+  ],
+  "droppedParameters": [],
+  "retrieved": "2026-11-14T06:15:47.998Z",
+  "acknowledgment": "These data were obtained from the NASA Langley Research Center (LaRC) POWER Project funded through the NASA Earth Science/Applied Science Program.",
+  "note": "Each kecamatan centroid is assigned to the nearest MERRA-2 grid point (0.5° × 0.625°, roughly 50 km). Several kecamatan share one cell.",
+  "processing": "Index built by a script written with AI assistance (Claude, Anthropic)."
+ },
+ "cells": {
+  "merra2_-7.50_109.375": {
+   "lat": -7.5,
+   "lon": 109.375,
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  "merra2_-7.50_108.750": {
+   "lat": -7.5,
+   "lon": 108.75,
+   "file": "power/merra2_-7.50_108.750.json"
+  }
+ },
+ "kecamatan": [
+  {
+   "shapeID": "43725864B23913526075729",
+   "name": "Ajibarang",
+   "centroid": [
+    109.07087,
+    -7.42228
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B22612731000333",
+   "name": "Banyumas",
+   "centroid": [
+    109.27308,
+    -7.53223
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B60698095658424",
+   "name": "Baturraden",
+   "centroid": [
+    109.22391,
+    -7.33648
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B74805116836581",
+   "name": "Cilongok",
+   "centroid": [
+    109.15679,
+    -7.38517
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B18344101165415",
+   "name": "Gumelar",
+   "centroid": [
+    108.9976,
+    -7.38639
+   ],
+   "cell": "merra2_-7.50_108.750",
+   "file": "power/merra2_-7.50_108.750.json"
+  },
+  {
+   "shapeID": "43725864B82719026502985",
+   "name": "Jatilawang",
+   "centroid": [
+    109.10412,
+    -7.5383
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B66697202015809",
+   "name": "Kalibagor",
+   "centroid": [
+    109.31126,
+    -7.48215
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B12599195124603",
+   "name": "Karanglewas",
+   "centroid": [
+    109.18711,
+    -7.39714
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B42347695130408",
+   "name": "Kebasen",
+   "centroid": [
+    109.22829,
+    -7.54454
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B42154025572805",
+   "name": "Kedung Banteng",
+   "centroid": [
+    109.20364,
+    -7.34725
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B70011575026295",
+   "name": "Kembaran",
+   "centroid": [
+    109.28708,
+    -7.41485
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B43966997352238",
+   "name": "Kemranjen",
+   "centroid": [
+    109.3146,
+    -7.57765
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B94300037109279",
+   "name": "Lumbir",
+   "centroid": [
+    108.9757,
+    -7.46699
+   ],
+   "cell": "merra2_-7.50_108.750",
+   "file": "power/merra2_-7.50_108.750.json"
+  },
+  {
+   "shapeID": "43725864B56503089977293",
+   "name": "Patikraja",
+   "centroid": [
+    109.21522,
+    -7.47292
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B74286199789823",
+   "name": "Pekuncen",
+   "centroid": [
+    109.08122,
+    -7.3473
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B61121282965996",
+   "name": "Purwojati",
+   "centroid": [
+    109.11042,
+    -7.49075
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B45851774298032",
+   "name": "Purwokerto Barat",
+   "centroid": [
+    109.21267,
+    -7.42231
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B45635142795824",
+   "name": "Purwokerto Selatan",
+   "centroid": [
+    109.24501,
+    -7.44544
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B45939975945729",
+   "name": "Purwokerto Timur",
+   "centroid": [
+    109.2481,
+    -7.42476
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B10701847967576",
+   "name": "Purwokerto Utara",
+   "centroid": [
+    109.2363,
+    -7.40262
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B10745821094005",
+   "name": "Rawalo",
+   "centroid": [
+    109.15925,
+    -7.52364
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B97162153771499",
+   "name": "Sokaraja",
+   "centroid": [
+    109.29488,
+    -7.44915
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B61859226571048",
+   "name": "Somagede",
+   "centroid": [
+    109.34485,
+    -7.52092
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B97875452146762",
+   "name": "Sumbang",
+   "centroid": [
+    109.26172,
+    -7.34717
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B97974300034198",
+   "name": "Sumpiuh",
+   "centroid": [
+    109.37317,
+    -7.60851
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B91986377761794",
+   "name": "Tambak",
+   "centroid": [
+    109.40954,
+    -7.60171
+   ],
+   "cell": "merra2_-7.50_109.375",
+   "file": "power/merra2_-7.50_109.375.json"
+  },
+  {
+   "shapeID": "43725864B1584925987780",
+   "name": "Wangon",
+   "centroid": [
+    109.05509,
+    -7.50895
+   ],
+   "cell": "merra2_-7.50_108.750",
+   "file": "power/merra2_-7.50_108.750.json"
+  }
+ ]
+}

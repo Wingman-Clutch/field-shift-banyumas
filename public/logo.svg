@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- AI-assisted: generated with Claude (Anthropic). See README, "Use of AI".. Neutral placeholder icon. -->
+  <defs>
+    <clipPath id="tile"><rect width="512" height="512" rx="96"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="512" height="512" fill="#1f5134"/>
+    <circle cx="360" cy="150" r="58" fill="#f2c14e"/>
+    <path d="M0 300 C 120 250, 260 250, 512 300 L 512 512 L 0 512 Z" fill="#3f8f5a"/>
+    <path d="M0 370 C 140 320, 300 330, 512 380 L 512 512 L 0 512 Z" fill="#5fae6e"/>
+    <path d="M0 440 C 160 400, 330 410, 512 450 L 512 512 L 0 512 Z" fill="#8cc97c"/>
+  </g>
+</svg>
