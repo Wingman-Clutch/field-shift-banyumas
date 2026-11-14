@@ -34,7 +34,8 @@ export default function AttributionFooter({ boundary, power }: AttributionFooter
       </p>
       <p>
         <span className="font-medium text-stone-600">AI-assisted: </span>
-        scaffold, data scripts and UI code generated with Claude (Anthropic); reviewed by the team.
+        scaffold, data scripts and UI code written with Claude (Anthropic). Details in the{' '}
+        <ExternalLink href="https://github.com/Wingman-Clutch/field-shift-banyumas#use-of-ai">README</ExternalLink>.
       </p>
     </footer>
   )
